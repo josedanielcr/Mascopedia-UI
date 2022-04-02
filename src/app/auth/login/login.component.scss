@@ -1,0 +1,66 @@
+
+/*palette*/
+$clear-blue: #00a8e8;
+$aqua-blue : #007ea7;
+$dark-blue : #003459;
+$white     : #ffffff;
+/*palette*/
+
+/*wrappers*/
+.full-size-wrapper  {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+}
+
+.image-wrapper {
+    background: url('../../../assets/auth/pexels-simona-kidrič-2607544.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.form-margin{
+    margin-top: 30%;
+}
+/*wrappers*/
+
+/*text*/
+.login-icon, .login-name {
+    color: $dark-blue;
+}
+
+i {
+    color: $dark-blue;
+}
+
+a {
+    color : $aqua-blue;
+}
+/*text*/
+
+/*button*/
+.submit-button {
+    background-color: $dark-blue;
+    color: $white;
+}
+/*button*/
+
+
+/*media*/
+@media (max-width: 768px) {
+
+    .image-wrapper {
+        display: none;
+    }
+
+    .login-wrapper {
+        width: 100%;
+    }
+
+}
+/*media*/
