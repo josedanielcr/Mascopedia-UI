@@ -5,6 +5,8 @@ import { AppRoutingModule } from '../app-routing.module';
 //custom
 import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
+import { SharedModule } from '../shared/shared.module';
+import { ComponentsModule } from '../components/components.module';
 
 
 
@@ -19,7 +21,9 @@ import { PagesComponent } from './pages.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    ComponentsModule
   ]
 })
 export class PagesModule { }
