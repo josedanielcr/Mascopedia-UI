@@ -1,0 +1,52 @@
+<!--**************************** -->
+<!--Navbar -->
+<!--**************************** -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand main-text" [routerLink]="['/home']">
+      <i class="fa-solid fa-shield-dog"></i>
+      Mascopedia
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a [routerLink]="['/home']" class="nav-link active">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/dogs']" class="nav-link active">Dogs</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/cats']" class="nav-link active">Cats</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/profile']" class="nav-link active">Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="['/about']" class="nav-link active">About</a>
+        </li>
+      </ul>
+
+      <form class="d-flex align-items-center">
+        <button mat-flat-button color="accent">Sign-out</button>
+      </form>
+    </div>
+  </div>
+</nav>
+<!--**************************** -->
+<!--Navbar -->
+<!--**************************** -->
