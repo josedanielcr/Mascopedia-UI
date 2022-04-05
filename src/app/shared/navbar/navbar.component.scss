@@ -1,6 +1,31 @@
 /*palette*/
+
 $clear-blue: #00a8e8;
-$aqua-blue : #007ea7;
-$dark-blue : #003459;
-$white     : #ffffff;
+$aqua-blue: #007ea7;
+$dark-blue: #003459;
+$white: #ffffff;
+
 /*palette*/
+
+.bg-dark-blue {
+    background-color: $dark-blue;
+}
+
+a:hover,
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+i {
+    color: #ffffff;
+    font-size: x-large;
+}
+
+.bg-none {
+    background: none;
+}
+
+.search-box {
+    margin-left: 55% !important;
+}
