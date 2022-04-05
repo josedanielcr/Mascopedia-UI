@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiBaseUrl : ''
+    apiBaseUrl : 'http://mascopedia-ui.azurewebsites.net/api'
 };

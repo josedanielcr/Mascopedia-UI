@@ -52,6 +52,6 @@ export class AuthService {
     * @returns The token is being returned.
     */
     retrieveToken(){
-        return localStorage.getItem('token');
+        return localStorage.getItem('token') || '';
     }
 }

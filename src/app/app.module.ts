@@ -9,11 +9,12 @@ import { AuthModule } from './auth/auth.module';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
+import { PipesModule } from './pipes/pipes.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoPageFoundComponent,
+    NoPageFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,8 @@ import { SharedModule } from './shared/shared.module';
     AuthModule,
     PagesModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
