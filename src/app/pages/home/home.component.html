@@ -3,7 +3,9 @@
 <!--**************************** -->
 <!--card-grid -->
 <!--**************************** -->
-<app-card-grid></app-card-grid>
+<app-card-grid [type]="'dog'"
+               (cardGridEmitter)="receiveCardInfo($event)">
+</app-card-grid>
 <!--**************************** -->
 <!--card-grid -->
 <!--**************************** -->

@@ -1,0 +1,20 @@
+/*palette*/
+$clear-blue: #00a8e8;
+$aqua-blue : #007ea7;
+$dark-blue : #003459;
+$white     : #ffffff;
+/*palette*/
+
+/*cards*/
+.card-image {
+    width: 100%;
+    height: 250px;
+    margin: 0px;
+    border-radius: 0.2rem;
+}
+
+.card-btn {
+    background-color: $aqua-blue ;
+    color: $white;
+}
+/*cards*/
