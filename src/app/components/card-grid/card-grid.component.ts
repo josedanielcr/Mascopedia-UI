@@ -7,39 +7,14 @@ import { DogsService } from 'src/app/services/animals/dogs.service';
     templateUrl: './card-grid.component.html',
     styleUrls: ['./card-grid.component.scss']
 })
-export class CardGridComponent implements OnInit {
+export class CardGridComponent  {
 
-    @Input() type             : string;
-    data                      : GenericAnimal[];
+    @Input()items              : GenericAnimal[];
     isRequestError            : boolean = false;
     requestError              : string;
     @Output() cardGridEmitter = new EventEmitter<any>();
 
-    constructor( private dogsService : DogsService) { }
-
-    /**
-    * Get all breeds from the API and store them in the breeds array.
-    */
-    ngOnInit(): void {
-
-        if( this.type === 'dog') this.getDogBreeds();
-        
-    }
-
-    /**
-     * It calls the getDogs function from the dogsService and passes in the number 10.
-     */
-    getDogBreeds(){
-
-        this.dogsService.getDogBreeds( 12 ).subscribe({        
-            next  : ( data ) => this.data = data,
-            error : ( err )  =>  {
-                this.isRequestError = true;
-                this.requestError = err;
-            }
-        });
-        
-    }
+    constructor() { }
 
     /**
      * Receive data from the parent component and emit it to the child component

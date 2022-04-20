@@ -7,17 +7,20 @@ import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
+import { CatsComponent } from './cats/cats.component';
 
 
 
 @NgModule({
   declarations: [
     PagesComponent,
-    HomeComponent
+    HomeComponent,
+    CatsComponent
   ],
   exports : [
     PagesComponent,
-    HomeComponent
+    HomeComponent,
+    CatsComponent
   ],
   imports: [
     CommonModule,

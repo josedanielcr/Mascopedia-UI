@@ -24,14 +24,16 @@ export class GenericAnimalService {
      *     image
      */
     parseToGenericAnimal( animal ): GenericAnimal{
+
+        let image : string = !('image' in animal) ? '' : animal.image.url;
+
         return {
             id          : animal.id,         
             name        : animal.name,      
             life_span   : animal.life_span,   
-            temperament : animal.temperament ,
-            origin      : animal.origin,    
+            temperament : animal.temperament,   
             breed_group : animal.breed_group,
-            image       : animal.image.url,
+            image
         }
     }
 

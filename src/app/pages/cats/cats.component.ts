@@ -1,16 +1,15 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { GenericAnimal } from 'src/app/interfaces/genericAnimal';
-import { DogsService } from 'src/app/services/animals/dogs.service';
+import { CatsService } from 'src/app/services/animals/cats.service';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+  selector: 'app-cats',
+  templateUrl: './cats.component.html',
+  styleUrls: ['./cats.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy{
+export class CatsComponent implements OnInit, OnDestroy {
 
     data : GenericAnimal[] = [];
-
     /* A function that is called when the user scrolls. */
     @HostListener('window:scroll', ['$event'])
     onScroll(){
@@ -20,27 +19,31 @@ export class HomeComponent implements OnInit, OnDestroy{
 
         if ( pos > max){
 
-            if(this.dogsService.loading) return;
+            if(this.catService.loading) return;
 
-            this.dogsService.getDogBreeds( 12 ).subscribe({        
+            this.catService.getCats( 12 ).subscribe({        
                 next  : ( data ) => this.data.push(...data)
             });
             
         }
     }
 
-    constructor( private dogsService : DogsService ) { }
+    constructor( private catService : CatsService ) { }
 
     ngOnInit(): void {
-        this.getDogBreeds();
+        this.getCatsBreeds();
     }
+
     /**
-     * It calls the getDogs function from the dogsService and passes in the number 10.
+     * We're calling the getCats() function from the CatService class, passing in the number 12 as an
+     * argument. 
      */
-    getDogBreeds(){
-        this.dogsService.getDogBreeds( 12 ).subscribe({        
-            next  : ( data ) => this.data = data,
-        });
+    getCatsBreeds(){
+
+        this.catService.getCats( 12 ).subscribe({
+            next: ( data ) => this.data = data
+        })
+
     }
 
     /**
@@ -50,12 +53,13 @@ export class HomeComponent implements OnInit, OnDestroy{
     receiveCardInfo( event ){
         this.data = event;
         console.log( this.data );
-        
     }
 
+    /**
+     * When the user leaves the page, reset the cat page to the first page
+     */
     ngOnDestroy(): void {
-        this.dogsService.resetPages();
+        this.catService.resetCatPage();
     }
-
 
 }

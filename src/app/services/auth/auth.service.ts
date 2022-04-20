@@ -38,6 +38,13 @@ export class AuthService {
             );
     }
 
+    /**
+     * It deletes the token from the local storage.
+     */
+    signOut(){
+        this.deleteToken();
+    }
+
     //misc functions
     /**
     * Save the token to local storage
@@ -53,5 +60,17 @@ export class AuthService {
     */
     retrieveToken(){
         return localStorage.getItem('token') || '';
+    }
+
+    /**
+     * It removes the token from local storage.
+     */
+    deleteToken(){
+        localStorage.removeItem('token');
+    }
+
+    isLoggedIn(): boolean{
+        //TODO: if the user has a token check if it's expired or validate if the user doesn't has a token at all
+        return true;
     }
 }

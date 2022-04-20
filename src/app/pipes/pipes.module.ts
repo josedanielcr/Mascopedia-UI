@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoDataPipe } from './no-data.pipe';
-
+import { NoImagePipe } from './no-image.pipe';
 
 @NgModule({
     declarations: [
-    NoDataPipe
-  ],
+        NoDataPipe,
+        NoImagePipe
+    ],
     exports: [
-        NoDataPipe
+        NoDataPipe,
+        NoImagePipe
     ],
     imports: [
         CommonModule

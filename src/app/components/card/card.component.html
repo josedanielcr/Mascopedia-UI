@@ -8,8 +8,7 @@
     <mat-card-subtitle> <span class="fw-bold">Life span:</span>  {{data.life_span | noData}}</mat-card-subtitle>
 
     <mat-card-content>
-    <p><span class="fw-bold">Origin: </span> {{data.origin | noData}} </p>
-    <img mat-card-image src="{{data.image}}" alt="image" class="card-image">
+    <img mat-card-image src="{{data.image | noImage }}" alt="image" class="card-image">
     </mat-card-content>
 
     <mat-card-actions>
