@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GenericAnimal } from 'src/app/interfaces/genericAnimal';
 import { DogsService } from 'src/app/services/animals/dogs.service';
 
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy{
         }
     }
 
-    constructor( private dogsService : DogsService ) { }
+    constructor( private dogsService : DogsService, private router : Router, private activatedRoute : ActivatedRoute ) { }
 
     ngOnInit(): void {
         this.getDogBreeds();
@@ -49,8 +50,7 @@ export class HomeComponent implements OnInit, OnDestroy{
      */
     receiveCardInfo( event ){
         this.data = event;
-        console.log( this.data );
-        
+        this.router.navigate(['posts', this.data['type'], this.data['id']], {relativeTo : this.activatedRoute});   
     }
 
     ngOnDestroy(): void {
