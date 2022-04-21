@@ -1,0 +1,14 @@
+<h1 class="fw-bold">{{searchedAnimal}}</h1>
+
+<!--**************************** -->
+<!--card-grid -->
+<!--**************************** -->
+<div *ngIf="data.length > 0">
+    <app-card-grid [items]="data"
+    (cardGridEmitter)="receiveCardInfo($event)">
+    </app-card-grid>
+</div>
+
+<!--**************************** -->
+<!--card-grid -->
+<!--**************************** -->

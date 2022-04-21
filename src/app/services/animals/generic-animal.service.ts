@@ -23,7 +23,7 @@ export class GenericAnimalService {
      *     breed_group : animal.breed_group,
      *     image
      */
-    parseToGenericAnimal( animal ): GenericAnimal{
+    parseToGenericAnimal( animal, type ): GenericAnimal{
 
         let image : string = !('image' in animal) ? '' : animal.image.url;
 
@@ -33,7 +33,8 @@ export class GenericAnimalService {
             life_span   : animal.life_span,   
             temperament : animal.temperament,   
             breed_group : animal.breed_group,
-            image
+            image,
+            type
         }
     }
 

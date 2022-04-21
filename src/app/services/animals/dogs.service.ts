@@ -38,7 +38,7 @@ export class DogsService {
         }).pipe(
             map( (response : any[] ) => {
                 response.map( ( dogBreed ) => {  
-                    dogsBreed.push(this.genericAnimalService.parseToGenericAnimal( dogBreed ));
+                    dogsBreed.push(this.genericAnimalService.parseToGenericAnimal( dogBreed, 'dog' ));
                 })
                 return dogsBreed;
             }),
@@ -49,6 +49,31 @@ export class DogsService {
             catchError( err => { throw new Error( err.error.msg )})
         );
 
+    }
+
+    /**
+     * It takes a name as a parameter, makes a get request to the server, and returns an array of
+     * GenericAnimal objects.
+     * @param name - string
+     * @returns An array of GenericAnimal objects.
+     */
+    getDogByName( name ){
+
+        let dogsBreed : GenericAnimal[] = [];
+
+        return this.http.get<GenericAnimal[]>(`${environment.apiBaseUrl}/dogs/${name}`, {
+            headers : { 'token' : this.authService.retrieveToken() }
+        }).pipe(
+            map( ( response : any[] )=> {
+                response.map( ( dogBreed ) => {
+                    console.log(dogBreed);
+                    
+                    dogsBreed.push(this.genericAnimalService.parseToGenericAnimal( dogBreed, 'dog' ));
+                })
+                return dogsBreed;
+            }),
+            catchError( err => { throw new Error( err )})
+        )
     }
 
     /**

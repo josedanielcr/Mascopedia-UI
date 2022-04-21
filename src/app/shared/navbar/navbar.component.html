@@ -1,7 +1,7 @@
 <!--**************************** -->
 <!--Navbar -->
 <!--**************************** -->
-<nav class="navbar navbar-expand-lg  bg-dark-blue">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark-blue">
     <div class="container-fluid">
         <a class="navbar-brand " [routerLink]="['/home']">
             <i class="fa-solid fa-shield-dog"></i> Mascopedia
@@ -20,10 +20,7 @@
                 </li>
             </ul>
 
-            <input type="search" class="form-control rounded search-box " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-            <span class="input-group-text border-0 bg-none" id="search-addon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </span>
+            <input type="search" class="form-control rounded search-box " placeholder="Search" (keyup.enter)="retrieveBreed($event)"/>
 
             <a [routerLink]="['/profile']" class="nav-link active">
                 <i class="fa-solid fa-user"></i>

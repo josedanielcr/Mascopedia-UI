@@ -5,4 +5,5 @@ export interface GenericAnimal {
     temperament : string;
     breed_group : string;
     image       : string;
+    type        : string;
 }

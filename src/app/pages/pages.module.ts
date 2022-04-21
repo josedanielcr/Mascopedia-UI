@@ -8,6 +8,8 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
 import { CatsComponent } from './cats/cats.component';
+import { PostsComponent } from './posts/posts.component';
+import { AnimalComponent } from './animal/animal.component';
 
 
 
@@ -15,12 +17,16 @@ import { CatsComponent } from './cats/cats.component';
   declarations: [
     PagesComponent,
     HomeComponent,
-    CatsComponent
+    CatsComponent,
+    PostsComponent,
+    AnimalComponent
   ],
   exports : [
     PagesComponent,
     HomeComponent,
-    CatsComponent
+    CatsComponent,
+    PostsComponent,
+    AnimalComponent
   ],
   imports: [
     CommonModule,

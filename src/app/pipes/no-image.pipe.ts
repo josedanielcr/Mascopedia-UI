@@ -11,7 +11,6 @@ export class NoImagePipe implements PipeTransform {
      * @returns The image url.
      */
     transform( image : String ) : String {
-        console.log(image);
             
         if( !image ){
             return './assets/images/404-dog.jpeg';
