@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CatsService } from 'src/app/services/animals/cats.service';
 import { DogsService } from 'src/app/services/animals/dogs.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -36,13 +37,25 @@ export class NavbarComponent implements OnInit {
      * @param event - the event that triggered the function
      */
     retrieveBreed( event ){
+
+        if( event.target.value.length < 3 ) {
+            Swal.fire({
+                title : 'It is neccessary to use at least 3 letters in your searh',
+                icon: 'warning',
+                position: 'bottom-left',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            return;
+        }
         
         let animal = '';
-        if( this.router.url.includes('cats') ){
+        if( this.router.url.includes('cat') ){
             animal = 'cat';
         } else{
             animal = 'dog';
         }
+
         this.router.navigate(['animal', animal, event.target.value], {relativeTo : this.activatedRoute});   
     }
 

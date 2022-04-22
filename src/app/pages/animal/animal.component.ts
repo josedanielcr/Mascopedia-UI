@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { GenericAnimal } from 'src/app/interfaces/genericAnimal';
 import { CatsService } from 'src/app/services/animals/cats.service';
 import { DogsService } from 'src/app/services/animals/dogs.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-animal',
