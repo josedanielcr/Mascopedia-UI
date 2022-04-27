@@ -1,1 +1,12 @@
-<p>posts works!</p>
+<div class="mt-3 mb-3">
+    <button (click)="createPost()" 
+            class="btn btn-post">
+            Create post 
+            <span> 
+                <i class="ms-2 fa-solid fa-folder-plus"></i>
+            </span>
+    </button>
+</div>
+<div *ngIf="posts">
+    <app-post-grid [posts]="posts"></app-post-grid>
+</div>

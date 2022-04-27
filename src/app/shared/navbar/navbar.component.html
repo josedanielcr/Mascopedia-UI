@@ -20,7 +20,7 @@
                 </li>
             </ul>
 
-            <form class="d-flex">
+            <div class="d-flex">
                 <input type="search" class="form-control rounded search-box " placeholder="Search" (keyup.enter)="retrieveBreed($event)"/>
                 <a [routerLink]="['/profile']" class="nav-link active">
                     <i class="fa-solid fa-user"></i>
@@ -29,7 +29,7 @@
                 <a class="nav-link active" (click)="signOut()">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                 </a>
-            </form>
+            </div>
 
         </div>
     </div>

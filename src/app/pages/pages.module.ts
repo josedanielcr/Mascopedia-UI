@@ -10,6 +10,10 @@ import { ComponentsModule } from '../components/components.module';
 import { CatsComponent } from './cats/cats.component';
 import { PostsComponent } from './posts/posts.component';
 import { AnimalComponent } from './animal/animal.component';
+import { PostCreationComponent } from './post-creation/post-creation.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -19,7 +23,8 @@ import { AnimalComponent } from './animal/animal.component';
     HomeComponent,
     CatsComponent,
     PostsComponent,
-    AnimalComponent
+    AnimalComponent,
+    PostCreationComponent
   ],
   exports : [
     PagesComponent,
@@ -32,7 +37,10 @@ import { AnimalComponent } from './animal/animal.component';
     CommonModule,
     AppRoutingModule,
     SharedModule,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatInputModule
   ]
 })
 export class PagesModule { }

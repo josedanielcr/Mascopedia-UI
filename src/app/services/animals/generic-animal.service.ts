@@ -6,8 +6,6 @@ import { GenericAnimal } from 'src/app/interfaces/genericAnimal';
 })
 export class GenericAnimalService {
 
-
-
     constructor() { }
 
 

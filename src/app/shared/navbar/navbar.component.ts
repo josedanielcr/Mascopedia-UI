@@ -55,8 +55,8 @@ export class NavbarComponent implements OnInit {
         } else{
             animal = 'dog';
         }
-
-        this.router.navigate(['animal', animal, event.target.value], {relativeTo : this.activatedRoute});   
+        
+        this.router.navigate(['animal', animal, event.target.value], {relativeTo : this.activatedRoute}); 
     }
 
 

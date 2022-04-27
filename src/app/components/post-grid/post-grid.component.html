@@ -1,0 +1,13 @@
+<!--**************************** -->
+<!--posts grid -->
+<!--**************************** -->
+<div *ngIf="posts" class="mb-5">
+   <div *ngFor="let post of posts">
+       <div class="mt-4 mb-4">
+           <app-post-card [post]="post"></app-post-card>
+       </div>
+   </div>
+</div>
+<!--**************************** -->
+<!--posts grid -->
+<!--**************************** -->

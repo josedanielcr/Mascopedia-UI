@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GenericAnimal } from 'src/app/interfaces/genericAnimal';
 import { CatsService } from 'src/app/services/animals/cats.service';
 
@@ -28,7 +29,7 @@ export class CatsComponent implements OnInit, OnDestroy {
         }
     }
 
-    constructor( private catService : CatsService ) { }
+    constructor( private catService : CatsService, private router : Router ) { }
 
     ngOnInit(): void {
         this.getCatsBreeds();
@@ -52,7 +53,9 @@ export class CatsComponent implements OnInit, OnDestroy {
      */
     receiveCardInfo( event ){
         this.data = event;
-        console.log( this.data );
+        console.log(this.data);
+        
+        this.router.navigate(['home/posts', this.data['type'], this.data['id']]);   
     }
 
     /**

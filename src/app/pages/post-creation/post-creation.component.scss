@@ -1,11 +1,14 @@
-/*palette*/
 $clear-blue: #00a8e8;
 $aqua-blue : #007ea7;
 $dark-blue : #003459;
 $white     : #ffffff;
 /*palette*/
 
-.btn-post {
+.post-button {
     background-color: $clear-blue;
     color: white;
+}
+
+.textarea-post {
+    height: 100px;
 }

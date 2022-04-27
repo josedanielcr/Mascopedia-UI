@@ -66,8 +66,6 @@ export class DogsService {
         }).pipe(
             map( ( response : any[] )=> {
                 response.map( ( dogBreed ) => {
-                    console.log(dogBreed);
-                    
                     dogsBreed.push(this.genericAnimalService.parseToGenericAnimal( dogBreed, 'dog' ));
                 })
                 return dogsBreed;

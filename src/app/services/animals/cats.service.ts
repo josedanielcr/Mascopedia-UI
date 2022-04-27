@@ -37,7 +37,7 @@ export class CatsService {
             headers : { 'token' : this.authService.retrieveToken() }
         }).pipe(
             map( (response : any[] ) => {
-                response.map( ( catBreed ) => {  
+                response.map( ( catBreed ) => {
                     catsBreeds.push(this.genericAnimalService.parseToGenericAnimal( catBreed, 'cat' ));
                 })
                 return catsBreeds;

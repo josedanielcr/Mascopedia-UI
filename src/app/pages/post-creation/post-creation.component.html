@@ -1,0 +1,76 @@
+
+<div class="mt-5">
+
+    <h1 class="fw-bold">Post creation</h1>
+    <!--**************************** -->
+    <!--form -->
+    <!--**************************** -->
+    <form autocomplete="on" class="p-3"  [formGroup]="postForm" (ngSubmit)="submitForm()">
+
+        <div class="form-margin">
+    
+            <div class="row mb-3">
+                <mat-form-field appearance="fill" class="w-100 p-0">
+                    <mat-label>Title</mat-label>
+                    <input matInput 
+                            type="text"
+                            formControlName="title"
+                            placeholder="Title of the post"
+                            [class.is-invalid]="invalidTitle">
+    
+                    <mat-hint align="start" *ngIf="!invalidTitle">
+                        <strong>Provide a title</strong> 
+                    </mat-hint>
+    
+                    <mat-hint align="start"*ngIf="invalidTitle" class="form-text text-danger" >
+                        <strong>You must provide a valid title</strong> 
+                    </mat-hint>
+                </mat-form-field>
+            </div>
+    
+            <div class="row mb-3">
+                <mat-form-field appearance="fill" class="w-100 p-0">
+                    <mat-label>Text</mat-label>
+                    <textarea matInput 
+                            type="text"
+                            class="textarea-post"
+                            formControlName="text"
+                            placeholder="Post data"
+                            [class.is-invalid]="inavalidText"></textarea>
+    
+                    <mat-hint align="start" *ngIf="!inavalidText">
+                        <strong>Provide your post text</strong> 
+                    </mat-hint>
+    
+                    <mat-hint align="start"*ngIf="inavalidText" class="form-text text-danger" >
+                        <strong>You must provide a valid post text (100 letters)</strong> 
+                    </mat-hint>
+    
+                </mat-form-field>
+            </div>
+    
+            <div class="row mb-3" *ngIf="!executing">
+                <button mat-flat-button 
+                        class="p-1 w-100 post-button"
+                        type="submit">
+                        Create post
+                </button>
+                <small *ngIf="errMsg != ''" class="form-text text-danger">{{ errMsg }}</small>
+            </div> 
+    
+            <div class="row mb-3" *ngIf="executing">
+                <button mat-flat-button 
+                        class="p-1 w-100 submit-button"
+                        disabled="true"
+                        type="submit">
+                        <i class="fa-solid fa-basketball fa-2x fa-spin"></i>
+                </button>
+            </div>
+    
+        </div>
+    
+    </form>
+    <!--**************************** -->
+    <!--form-->
+    <!--**************************** -->
+</div>

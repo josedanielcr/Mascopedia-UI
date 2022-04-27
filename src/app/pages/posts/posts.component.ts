@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from 'src/app/interfaces/post';
+import { AnimalsService } from 'src/app/services/animals/animals.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-posts',
@@ -8,14 +11,44 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
-    constructor( private activatedRouter : ActivatedRoute ) { }
+    public animalId : string;
+    public animalType : string;
+    public posts : Post[];
 
+    constructor( private activatedRouter : ActivatedRoute,
+                 private animalSerivce : AnimalsService,
+                 private router : Router ) {
+        this.animalId = this.activatedRouter.snapshot.params['id'];
+        this.animalType = this.activatedRouter.snapshot.params['type']
+    }
+    
+
+    /**
+     * The function is called when the component is initialized. It calls the
+     * animalService.getAnimalsByType() function, which returns an observable. The observable is subscribed
+     * to, and the next() function is called when the observable returns data. The data is then assigned to
+     * the posts variable.
+     */
     ngOnInit(): void {
-        //TODO: borrar estos console log, solo son para demostrar como se sacan los parametros de la ruta
-        console.log('id el animal:', this.activatedRouter.snapshot.params['id']);
-        console.log('tipo del animal:', this.activatedRouter.snapshot.params['type']);
+        this.animalSerivce.getAnimalsByType( this.animalId, this.animalType ).subscribe({
+            next: ( postsData ) => {
+                this.posts = postsData;             
+            },
+            error : ( err ) => {
+                Swal.fire({
+                    title: err.error.msg,
+                    icon: 'error',
+                    timer: 1500,
+                    showCloseButton: false,
+                    position: 'bottom-left'
+                })
+            }
+        })
     }
 
-    //aqui se debe de hacer la logica de mostrar posts del animal seleccionado
+    createPost(){
+        this.router.navigate(['home/create/post',this.animalId, this.animalType]);
+    }
+
 
 }
