@@ -1,6 +1,9 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { PostsService } from 'src/app/services/posts/posts.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-creation',
@@ -15,7 +18,10 @@ export class PostCreationComponent implements OnInit {
     animalId : string;
     animalType : string;
 
-    constructor( private fb : FormBuilder, private activatedRouter : ActivatedRoute ) {
+    constructor( private fb : FormBuilder, 
+                 private activatedRouter : ActivatedRoute,
+                 private postService : PostsService,
+                 private location : Location ) {
         this.animalId = this.activatedRouter.snapshot.params['id'];
         this.animalType = this.activatedRouter.snapshot.params['type'];
         this.createForm();
@@ -61,6 +67,28 @@ export class PostCreationComponent implements OnInit {
 
     createPost( data ){
         
+        this.postService.createPost( data ).subscribe({
+            next : ( createdPost ) => {
+                Swal.fire({
+                    title: `Post ${ createdPost['title']} created successfully`,
+                    icon:'success',
+                    timer: 1500,
+                    showCloseButton: false,
+                    position: 'bottom-left'
+                }).then( () => this.location.back() );
+            },
+            error : ( err ) => {
+                console.log( err );
+                
+                Swal.fire({
+                    title: err.error,
+                    icon: 'error',
+                    timer: 1500,
+                    showCloseButton: false,
+                    position: 'bottom-left'
+                })
+            }
+        })
     }
     
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from 'src/app/interfaces/post';
 import { AnimalsService } from 'src/app/services/animals/animals.service';
+import { PostsService } from 'src/app/services/posts/posts.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -16,8 +17,8 @@ export class PostsComponent implements OnInit {
     public posts : Post[];
 
     constructor( private activatedRouter : ActivatedRoute,
-                 private animalSerivce : AnimalsService,
-                 private router : Router ) {
+                 private router : Router,
+                 private postsService : PostsService ) {
         this.animalId = this.activatedRouter.snapshot.params['id'];
         this.animalType = this.activatedRouter.snapshot.params['type']
     }
@@ -30,7 +31,7 @@ export class PostsComponent implements OnInit {
      * the posts variable.
      */
     ngOnInit(): void {
-        this.animalSerivce.getAnimalsByType( this.animalId, this.animalType ).subscribe({
+        this.postsService.getAnimalsByType( this.animalId, this.animalType ).subscribe({
             next: ( postsData ) => {
                 this.posts = postsData;             
             },

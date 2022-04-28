@@ -14,6 +14,8 @@ import { PostCreationComponent } from './post-creation/post-creation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MyPostsComponent } from './my-posts/my-posts.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -24,14 +26,17 @@ import { MatButtonModule } from '@angular/material/button';
     CatsComponent,
     PostsComponent,
     AnimalComponent,
-    PostCreationComponent
+    PostCreationComponent,
+    MyPostsComponent
   ],
   exports : [
     PagesComponent,
     HomeComponent,
     CatsComponent,
     PostsComponent,
-    AnimalComponent
+    AnimalComponent,
+    PostCreationComponent,
+    MyPostsComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +45,8 @@ import { MatButtonModule } from '@angular/material/button';
     ComponentsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatTabsModule
   ]
 })
 export class PagesModule { }

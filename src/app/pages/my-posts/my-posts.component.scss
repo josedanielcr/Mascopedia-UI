@@ -1,0 +1,19 @@
+$clear-blue: #00a8e8;
+$aqua-blue : #007ea7;
+$dark-blue : #003459;
+$white     : #ffffff;
+/*palette*/
+
+.post-button {
+    background-color: $clear-blue;
+    color: white;
+}
+
+.delete-button{
+    background-color: red;
+    color: white;
+}
+
+.textarea-post {
+    height: 100px;
+}

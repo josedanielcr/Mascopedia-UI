@@ -1,0 +1,27 @@
+/*palette*/
+$clear-blue: #00a8e8;
+$aqua-blue : #007ea7;
+$dark-blue : #003459;
+$white     : #ffffff;
+/*palette*/
+
+//mat-table-----------------------
+.mat-header-cell {
+    font-weight: bold;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: $aqua-blue;
+}
+
+.mat-table{    
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow:hidden !important;
+}
+
+mat-paginator {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+//mat-table-----------------------

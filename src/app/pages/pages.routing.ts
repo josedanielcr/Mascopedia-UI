@@ -9,6 +9,7 @@ import { CatsComponent } from './cats/cats.component';
 import { PostsComponent } from './posts/posts.component';
 import { AnimalComponent } from './animal/animal.component';
 import { PostCreationComponent } from './post-creation/post-creation.component';
+import { MyPostsComponent } from './my-posts/my-posts.component';
 
 const routes: Routes = [
    {
@@ -16,11 +17,12 @@ const routes: Routes = [
        component : PagesComponent,
        canActivate: [AuthGuard],
        children  : [
-        { path: '',                   component: HomeComponent }, 
-        { path: 'cat',                component: CatsComponent },
-        { path: 'animal/:type/:name', component: AnimalComponent },
-        { path: 'posts/:type/:id',    component: PostsComponent },
-        { path: 'create/post/:id/:type',   component: PostCreationComponent },
+        { path: '',                      component: HomeComponent }, 
+        { path: 'cat',                   component: CatsComponent },
+        { path: 'myPosts',               component: MyPostsComponent },
+        { path: 'animal/:type/:name',    component: AnimalComponent },
+        { path: 'posts/:type/:id',       component: PostsComponent },
+        { path: 'create/post/:id/:type', component: PostCreationComponent },
        ]
    }
 ];
